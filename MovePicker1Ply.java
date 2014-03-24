@@ -1,7 +1,7 @@
 
 public class MovePicker1Ply extends MovePicker {
     @Override
-    public int pickMove(TetrisState currentState, int[][] legalMoves)  {
+    public int pickMove(TetrisState currentState, int[][] legalMoves, UtilityCalculator utilityCalculator)  {
         int bestMoveIndex = 0;
 		double bestMoveUtility = Double.NEGATIVE_INFINITY;
         
@@ -9,7 +9,7 @@ public class MovePicker1Ply extends MovePicker {
             TetrisState predictedState = new TetrisState();   
             predictedState.copyState(currentState);
             predictedState.makeMove(i);
-			int moveUtility = _utilityCalculator.getStateUtility(predictedState);
+			int moveUtility = utilityCalculator.getStateUtility(predictedState);
 			if(moveUtility > bestMoveUtility) {
 				bestMoveIndex = i;
 				bestMoveUtility = moveUtility;

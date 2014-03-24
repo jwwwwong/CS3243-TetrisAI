@@ -1,17 +1,9 @@
 
 public abstract class MovePicker {
-    UtilityCalculator _utilityCalculator = null;
-    public UtilityCalculator getUtilityCalculator() {
-        return _utilityCalculator;
-    }
-    
-    public void setUtilityCalculator(UtilityCalculator utilityCalculator) {
-        _utilityCalculator = utilityCalculator;
-    }
-    public int pickMove(State currentState, int[][] legalMoves) {
+    public int pickMove(State currentState, int[][] legalMoves, UtilityCalculator utilityCalculator) {
         TetrisState t = new TetrisState();
         t.copyState(currentState);
-        return pickMove(t, legalMoves);
+        return pickMove(t, legalMoves, utilityCalculator);
     }
-    public abstract int pickMove(TetrisState currentState, int[][] legalMoves);
+    public abstract int pickMove(TetrisState currentState, int[][] legalMoves, UtilityCalculator utilityCalculator);
 }

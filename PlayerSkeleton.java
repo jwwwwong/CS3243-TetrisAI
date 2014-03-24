@@ -2,12 +2,10 @@
 public class PlayerSkeleton {
     static int[] _weights = {-37, -28, 5};
     MovePicker _movePicker = new MovePicker1Ply();
-    {
-        UtilityCalculator utilityCalculator = new UtilityCalculator();
-        _movePicker.setUtilityCalculator(utilityCalculator);
-    }
+    UtilityCalculator _utilityCalculator = new UtilityCalculator();
+        
 	private int pickMove(State s, int[][] legalMoves) {		
-        return _movePicker.pickMove(s, legalMoves);
+        return _movePicker.pickMove(s, legalMoves, _utilityCalculator);
 	}
     
     private static void runMovePicker(MovePicker movePicker) {        
