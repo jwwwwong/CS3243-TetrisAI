@@ -4,5 +4,10 @@ public abstract class MovePicker {
     public void setUtilityCalculator(UtilityCalculator utilityCalculator) {
         _utilityCalculator = utilityCalculator;
     }
-    public abstract int pickMove(State currentState, int[][] legalMoves);
+    public int pickMove(State currentState, int[][] legalMoves) {
+        TetrisState t = new TetrisState();
+        t.copyState(currentState);
+        return pickMove(t, legalMoves);
+    }
+    public abstract int pickMove(TetrisState currentState, int[][] legalMoves);
 }

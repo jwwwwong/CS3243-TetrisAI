@@ -23,10 +23,7 @@ public class UtilityCalculator {
         _utilityArray = utilityArray;
     }
     
-    public int getMoveUtility(State currentState, int move) {
-        TetrisState predictedState = new TetrisState();
-        predictedState.copyState(currentState);
-        predictedState.makeMove(move);
+    public int getStateUtility(TetrisState predictedState) {
         int utility = 0;
         for(int i = 0; i < _utilityArray.length; i++) {
             utility += _weights[i] * _utilityArray[i].evaluate(predictedState);

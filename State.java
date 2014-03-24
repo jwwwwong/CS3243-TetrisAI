@@ -162,10 +162,6 @@ public class State {
 		nextPiece = randomPiece();
 
 	}
-    
-    public void setNextPiece(int piece) {
-        nextPiece = piece;
-    }
 	
 	//random integer, returns 0-6
 	private int randomPiece() {

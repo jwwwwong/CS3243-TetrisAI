@@ -7,7 +7,7 @@ public class RandomSequenceEvaluator extends AiEvaluator {
     }
 
     @Override
-    protected void alterPieceNumber(State s) {
+    protected void alterPieceNumber(TetrisState s) {
     }
     
 }

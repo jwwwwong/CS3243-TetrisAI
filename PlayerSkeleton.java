@@ -1,6 +1,6 @@
 
 public class PlayerSkeleton {
-    MovePicker _movePicker = new SimpleMovePicker();
+    MovePicker _movePicker = new MovePicker1Ply();
     {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         _movePicker.setUtilityCalculator(utilityCalculator);
@@ -11,7 +11,7 @@ public class PlayerSkeleton {
     
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
-        MovePicker movePicker = new SimpleMovePicker();
+        MovePicker movePicker = new MovePicker1Ply();
         AiEvaluator evaluator = new IncrementalSequenceEvalutor();
  		Optimizer optimizer = new HillClimbingOptimizer();
 

@@ -9,7 +9,7 @@ public class IncrementalSequenceEvalutor extends AiEvaluator {
     }
     
     @Override
-    protected void alterPieceNumber(State s) {
+    protected void alterPieceNumber(TetrisState s) {
         updatePieceNumber();
         s.setNextPiece(_pieceNumber);
     }

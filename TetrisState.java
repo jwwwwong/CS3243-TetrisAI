@@ -18,7 +18,7 @@ public class TetrisState {
 	
 	//current turn
 	private int turn = 0;
-	private int cleared = 0;
+	private int totalRowsCleared = 0;
 	private int currentRowsCleared = 0;
 	
 	//each square in the grid - int means empty - other values mean the turn it was placed
@@ -113,9 +113,25 @@ public class TetrisState {
 	public TetrisState() {
 	}
     
+    public int getRowsCleared() {
+        return totalRowsCleared;
+    }
+    
+    public void setNextPiece(int piece) {
+        nextPiece = piece;
+    }
+    
     public void printField() {
         ArrayHandler.print(field);
     }        
+    
+    public void copyState(TetrisState s) {
+        field = ArrayHandler.makeCopy(s.getField());
+        top = ArrayHandler.makeCopy(s.getTop());
+        nextPiece = s.getNextPiece();
+        turn = s.getTurnNumber();
+        currentRowsCleared = 0;
+    }
     
     public void copyState(State s) {
         field = ArrayHandler.makeCopy(s.getField());
@@ -178,8 +194,6 @@ public class TetrisState {
 		return (int)(Math.random()*N_PIECES);
 	}
 	
-
-
 	
 	//gives legal moves for 
 	public int[][] legalMoves() {
@@ -241,7 +255,7 @@ public class TetrisState {
 			//if the row was full - remove it and slide above stuff down
 			if(full) {
 				currentRowsCleared++;
-				cleared++;
+				totalRowsCleared++;
 				//for each column
 				for(int c = 0; c < COLS; c++) {
 
