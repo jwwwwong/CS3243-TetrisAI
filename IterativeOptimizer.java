@@ -16,7 +16,7 @@ public class IterativeOptimizer extends Optimizer {
             for(int j = -10; j < 10; j++) {
                 int[] weights = {i, j};
                 utilityCalculator.setWeights(weights);
-                int performance = evaluator.evaluateAveragePerformance(movePicker, 1);
+                int performance = evaluator.evaluateAveragePerformance(movePicker);
                 if(performance > bestPerformance) {
                     bestPerformance = performance;
                     bestWeights = weights;

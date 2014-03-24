@@ -4,14 +4,17 @@
  * and open the template in the editor.
  */
 
-public class Evaluator {            
-    public int evaluateAveragePerformance(MovePicker movePicker, int trials) {
+public abstract class Evaluator {            
+    public int evaluateAveragePerformance(MovePicker movePicker) {
         int performance = 0;
+        int trials = numberOfTrials();
         for(int i = 0; i < trials; i++) {
             performance += evaluatePerformance(movePicker);
         }
         return (performance / trials);
     }
+    
+    protected abstract int numberOfTrials();
     
     private int evaluatePerformance(MovePicker movePicker) {
         State s = new State();        
@@ -22,6 +25,5 @@ public class Evaluator {
         return s.getRowsCleared();
     }       
     
-    protected void alterPieceNumber(State s) {
-    }
+    protected abstract void alterPieceNumber(State s);
 }

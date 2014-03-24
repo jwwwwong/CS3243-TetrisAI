@@ -9,6 +9,11 @@ public class IncrementalSequenceEvalutor extends Evaluator {
     boolean _shouldIncrement = false;
     
     @Override
+    protected int numberOfTrials() {
+        return 1;
+    }
+    
+    @Override
     protected void alterPieceNumber(State s) {
         updatePieceNumber();
         s.setNextPiece(_pieceNumber);
