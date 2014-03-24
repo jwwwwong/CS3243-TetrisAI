@@ -1,21 +1,16 @@
 
-import java.util.ArrayList;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 public class UtilityCalculator {
     private int _weights[] = {-1, 0};
-    private final ArrayList<Utility> _utilityList = new ArrayList<>();
-    {
-        _utilityList.add(new MaxHeightUtility());
-        _utilityList.add(new HoleCountUtility());        
+    private Utility[] _utilityArray;
+
+    public UtilityCalculator() {
+        _utilityArray = new Utility[]{  
+                                        new MaxHeightUtility(),
+                                        new HoleCountUtility()
+                                     };
     }
     
-    public int [] getWeights() {
+    public int[] getWeights() {
         return _weights;
     }
     
@@ -23,13 +18,21 @@ public class UtilityCalculator {
         _weights = weights;
     }
     
+    public Utility[] getUtilityArray() {
+        return _utilityArray;
+    }
+    
+    public void setUtilityArray(Utility[] utilityArray) {
+        _utilityArray = utilityArray;
+    }
+    
     public int getMoveUtility(State currentState, int move) {
         TetrisState predictedState = new TetrisState();
         predictedState.copyState(currentState);
         predictedState.makeMove(move);
         int utility = 0;
-        for(int i = 0; i < _utilityList.size(); i++) {
-            utility += _weights[i] * _utilityList.get(i).evaluate(predictedState);
+        for(int i = 0; i < _utilityArray.length; i++) {
+            utility += _weights[i] * _utilityArray[i].evaluate(predictedState);
         }
         return  utility;
     }   
