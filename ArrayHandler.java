@@ -1,4 +1,20 @@
-public class Printer {
+public class ArrayHandler {    
+    public static int[] makeCopy(int[] arr) {
+        int[] copy = new int[arr.length];
+        for(int i = 0; i < arr.length; i++) {
+                copy[i] = arr[i];
+        }
+        return copy;
+	}
+    
+	public static int[][] makeCopy(int[][] arr) {
+        int[][] copy = new int[arr.length][];
+        for(int i = 0; i < arr.length; i++) {
+                copy[i] = makeCopy(arr[i]);
+        }
+        return copy;
+	}
+    
     public static void print(int [] arr) {
         for(int i = 0; i < arr.length; i++) {            
             System.out.print(arr[i]);

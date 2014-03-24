@@ -114,29 +114,12 @@ public class TetrisState {
 	}
     
     public void printField() {
-        Printer.print(field);
-    }
-    
-    private int[] makeCopy(int[] arr) {
-        int[] copy = new int[arr.length];
-        for(int i = 0; i < arr.length; i++) {
-                copy[i] = arr[i];
-        }
-        return copy;
-	}
-    
-	private int[][] makeCopy(int[][] arr) {
-        int[][] copy = new int[arr.length][];
-        for(int i = 0; i < arr.length; i++) {
-                copy[i] = makeCopy(arr[i]);
-        }
-        return copy;
-	}
-    
+        ArrayHandler.print(field);
+    }        
     
     public void copyState(State s) {
-        field = makeCopy(s.getField());
-        top = makeCopy(s.getTop());
+        field = ArrayHandler.makeCopy(s.getField());
+        top = ArrayHandler.makeCopy(s.getTop());
         nextPiece = s.getNextPiece();
         turn = s.getTurnNumber();
         currentRowsCleared = 0;
