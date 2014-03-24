@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+public class IncrementalSequenceEvalutor extends Evaluator {
+    private int _pieceNumber = 0;
+    boolean _shouldIncrement = false;
+    
+    @Override
+    protected void alterPieceNumber(State s) {
+        updatePieceNumber();
+        s.setNextPiece(_pieceNumber);
+    }
+    
+    private void updatePieceNumber() {
+        int increment = 1;
+        if(_pieceNumber % 2 == 0) {
+            increment = 2;            
+        }
+        if(_pieceNumber % 4 == 0) {
+            increment = 3;            
+        }
+        if(_pieceNumber % 5 == 0) {
+            increment = 4;            
+        }
+        if(_pieceNumber % 7 == 0) {
+            increment = 5;            
+        }
+        if(_pieceNumber % 13 == 0) {
+            increment = 6;            
+        }
+        if(_pieceNumber % 21 == 0) {
+            increment = 7;            
+        }
+        if(_pieceNumber % 29 == 0) {
+            increment = 8;            
+        }        
+        if(_pieceNumber % 31 == 0) {
+            increment = 9;            
+        }
+        
+        _pieceNumber = (_pieceNumber + increment) % 7;
+        
+        if(_shouldIncrement) {
+            _pieceNumber++;
+        }
+        if(_pieceNumber == _pieceNumber) {
+            _shouldIncrement = true;
+        }
+    }
+}

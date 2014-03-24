@@ -1,15 +1,19 @@
 
 public class PlayerSkeleton {
-    UtilityCalculator utilityCalculator = new UtilityCalculator();
-    MovePicker _movePicker = new SimpleMovePicker(utilityCalculator);
-    
+    MovePicker _movePicker = new SimpleMovePicker();
+    {
+        UtilityCalculator utilityCalculator = new UtilityCalculator();
+        _movePicker.setUtilityCalculator(utilityCalculator);
+    }
 	private int pickMove(State s, int[][] legalMoves) {		
         return _movePicker.pickMove(s, legalMoves);
 	}
     
     private static void runOptimizer() {
-		Optimizer optimizer = new GeneticOptimizer();
-        optimizer.optimize();
+        MovePicker movePicker = new SimpleMovePicker();
+        Evaluator evaluator = new IncrementalSequenceEvalutor();
+		Optimizer optimizer = new IterativeOptimizer();
+        optimizer.optimize(movePicker, evaluator);
     }
     
     private static void runNormalGame() {

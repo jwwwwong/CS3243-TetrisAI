@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-public abstract class Optimizer {
-    
-    public abstract void optimize();
-    
+public abstract class Optimizer {   
+    public abstract void optimize(MovePicker movePicker, Evaluator evaluator);    
 }

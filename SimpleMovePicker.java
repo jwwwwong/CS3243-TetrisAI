@@ -5,9 +5,6 @@
  */
 
 public class SimpleMovePicker extends MovePicker {
-    public SimpleMovePicker(UtilityCalculator utilityCalculator) {
-        super(utilityCalculator);
-    }
     @Override
     public int pickMove(State currentState, int[][] legalMoves)  {
         int bestMoveIndex = 0;

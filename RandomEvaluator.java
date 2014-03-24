@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 
-/**
- *
- * @author johnwong
- */
-public class Sequencer {
+public class RandomEvaluator {
     
 }
