@@ -12,7 +12,7 @@ public class PlayerSkeleton {
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         MovePicker movePicker = new SimpleMovePicker();
-        Evaluator evaluator = new IncrementalSequenceEvalutor();
+        AiEvaluator evaluator = new IncrementalSequenceEvalutor();
  		Optimizer optimizer = new HillClimbingOptimizer();
 
         optimizer.optimize(utilityCalculator, movePicker, evaluator);

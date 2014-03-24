@@ -1,7 +1,7 @@
 
 public class IterativeOptimizer extends Optimizer {
     @Override
-    public void optimize(UtilityCalculator utilityCalculator, MovePicker movePicker, Evaluator evaluator) {
+    public void optimize(UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
         int[] bestWeights = new int[utilityCalculator.getWeights().length];
         int testCount = 0;
         int bestPerformance = 0;

@@ -1,5 +1,5 @@
 
-public class RandomEvaluator extends Evaluator {
+public class RandomSequenceEvaluator extends AiEvaluator {
 
     @Override
     protected int numberOfTrials() {

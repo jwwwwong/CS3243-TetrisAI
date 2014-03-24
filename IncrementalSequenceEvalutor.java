@@ -1,5 +1,5 @@
 
-public class IncrementalSequenceEvalutor extends Evaluator {
+public class IncrementalSequenceEvalutor extends AiEvaluator {
     private int _pieceNumber = 0;
     boolean _shouldIncrement = false;
     

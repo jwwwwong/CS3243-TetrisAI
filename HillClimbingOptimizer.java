@@ -4,7 +4,7 @@ public class HillClimbingOptimizer extends Optimizer {
     final int MAX_ITERATIONS = 10;
     final int MAX_TRIAL_COUNT = 10;
     @Override
-    public void optimize(UtilityCalculator utilityCalculator, MovePicker movePicker, Evaluator evaluator) {
+    public void optimize(UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
         int iterationCount = 0;
         
         int currentUtilityIndex = 0;
@@ -53,7 +53,7 @@ public class HillClimbingOptimizer extends Optimizer {
         ArrayHandler.print(bestWeights);
     }
     
-    private int testPerformance(int[] weights, UtilityCalculator utilityCalculator, MovePicker movePicker, Evaluator evaluator) {
+    private int testPerformance(int[] weights, UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
         utilityCalculator.setWeights(weights);
         int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
         System.out.print("weights: ");

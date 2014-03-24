@@ -1,5 +1,5 @@
 
-public abstract class Evaluator {            
+public abstract class AiEvaluator {            
     public int evaluateAveragePerformance(MovePicker movePicker, UtilityCalculator utilityCalculator) {
         movePicker.setUtilityCalculator(utilityCalculator);
         int performance = 0;
