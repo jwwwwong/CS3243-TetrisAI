@@ -13,10 +13,9 @@ public abstract class AiEvaluator {
     protected abstract int numberOfTrials();
     
     private int evaluatePerformance(MovePicker movePicker) {
-        State s = new State();
-        //TetrisState s = new TetrisState();
+        TetrisState s = new TetrisState();
 		while(!s.hasLost()) {
-            //alterPieceNumber(s);
+            alterPieceNumber(s);
             int[][] legalMoves = s.legalMoves();
             int move = movePicker.pickMove(s, legalMoves);
 			s.makeMove(move);
