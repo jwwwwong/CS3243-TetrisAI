@@ -1,7 +1,7 @@
 
 public class UtilityCalculator {
-    private int _weights[] = {0, 0, 0};
-    private Utility[] _utilityArray = new Utility[]{  
+    private int[] _weights = {0, 0, 0};
+    private Utility[] _utilityArray = new Utility[] {  
                                         new MaxHeightUtility(),
                                         new HoleCountUtility(),
                                         new RowsClearedUtility()

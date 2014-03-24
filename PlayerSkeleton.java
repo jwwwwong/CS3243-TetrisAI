@@ -1,5 +1,6 @@
 
 public class PlayerSkeleton {
+    static int[] _weights = {-17, -2, 0};
     MovePicker _movePicker = new MovePicker1Ply();
     {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
@@ -8,6 +9,25 @@ public class PlayerSkeleton {
 	private int pickMove(State s, int[][] legalMoves) {		
         return _movePicker.pickMove(s, legalMoves);
 	}
+    
+    private static void runMovePicker(MovePicker movePicker) {        
+        UtilityCalculator utilityCalculator = new UtilityCalculator();
+        utilityCalculator.setWeights(_weights);
+        AiEvaluator evaluator = new IncrementalSequenceEvalutor(); 		
+ 		int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
+        System.out.print(performance);
+        System.out.println();
+    }
+    
+    private static void runMovePicker1Ply() {
+        System.out.print("MovePicker1Ply rows cleared: ");
+        runMovePicker(new MovePicker1Ply());
+    }
+    
+    private static void runMovePicker2Ply() {
+        System.out.print("MovePicker2Ply rows cleared: ");
+        runMovePicker(new MovePicker2Ply());
+    }
     
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
@@ -37,6 +57,8 @@ public class PlayerSkeleton {
 	
 	public static void main(String[] args) {
 		runOptimizer();
+        runMovePicker1Ply();
+        runMovePicker2Ply();
 	}
 	
 }
