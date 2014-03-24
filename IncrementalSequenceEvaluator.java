@@ -45,12 +45,14 @@ public class IncrementalSequenceEvaluator extends AiEvaluator {
         
         if(_shouldIncrement) {
             _pieceNumber++;
+            _shouldIncrement = false;
         }
         if(_pieceNumber == _pieceNumber) {
             _shouldIncrement = true;
         }
     }
 
+    @Override
     protected void resetPieceNumber() {
         _pieceNumber = 0;
         _shouldIncrement = false;

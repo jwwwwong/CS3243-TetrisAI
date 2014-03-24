@@ -18,7 +18,7 @@ public abstract class AiEvaluator {
             alterPieceNumber(s);
             int[][] legalMoves = s.legalMoves();
             int move = movePicker.pickMove(s, legalMoves, utilityCalculator);
-			s.makeMove(move);
+            s.makeMove(move);
         }
         int performance = s.getRowsCleared();
         return performance;

@@ -1,6 +1,7 @@
 
 public class PlayerSkeleton {
-    static int[] _weights = {-37, -28, 5};
+    static int[] _weights = {-1, 0, 0, 0};
+    
     MovePicker _movePicker = new MovePicker1Ply();
     UtilityCalculator _utilityCalculator = new UtilityCalculator();
         
