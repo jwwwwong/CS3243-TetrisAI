@@ -203,7 +203,7 @@ public class TetrisState {
 	
 	
 	//random integer, returns 0-6
-	private int randomPiece() {
+	public static int randomPiece() {
 		return (int)(Math.random()*N_PIECES);
 	}
 	

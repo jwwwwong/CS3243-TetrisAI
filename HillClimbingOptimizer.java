@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-public class GeneticOptimizer extends Optimizer {    
+public class HillClimbingOptimizer extends Optimizer {
     @Override
     public void optimize() {
-    }
+    }   
 }

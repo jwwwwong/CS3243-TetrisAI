@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-public class GeneticOptimizer extends Optimizer {    
-    @Override
-    public void optimize() {
-    }
+/**
+ *
+ * @author johnwong
+ */
+public class Sequencer {
+    
 }
