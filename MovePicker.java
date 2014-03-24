@@ -1,6 +1,10 @@
 
 public abstract class MovePicker {
     UtilityCalculator _utilityCalculator = null;
+    public UtilityCalculator getUtilityCalculator() {
+        return _utilityCalculator;
+    }
+    
     public void setUtilityCalculator(UtilityCalculator utilityCalculator) {
         _utilityCalculator = utilityCalculator;
     }

@@ -9,5 +9,9 @@ public class RandomSequenceEvaluator extends AiEvaluator {
     @Override
     protected void alterPieceNumber(TetrisState s) {
     }
+
+    @Override
+    protected void resetPieceNumber() {
+    }
     
 }

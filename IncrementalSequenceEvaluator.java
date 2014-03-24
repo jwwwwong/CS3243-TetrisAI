@@ -1,5 +1,5 @@
 
-public class IncrementalSequenceEvalutor extends AiEvaluator {
+public class IncrementalSequenceEvaluator extends AiEvaluator {
     private int _pieceNumber = 0;
     boolean _shouldIncrement = false;
     
@@ -49,5 +49,10 @@ public class IncrementalSequenceEvalutor extends AiEvaluator {
         if(_pieceNumber == _pieceNumber) {
             _shouldIncrement = true;
         }
+    }
+
+    protected void resetPieceNumber() {
+        _pieceNumber = 0;
+        _shouldIncrement = false;
     }
 }

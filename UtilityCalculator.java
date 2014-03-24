@@ -8,19 +8,11 @@ public class UtilityCalculator {
                                      };
     
     public int[] getWeights() {
-        return _weights;
+        return ArrayHandler.makeCopy(_weights);
     }
     
     public void setWeights(int weights[]) {
-        _weights = weights;
-    }
-    
-    public Utility[] getUtilityArray() {
-        return _utilityArray;
-    }
-    
-    public void setUtilityArray(Utility[] utilityArray) {
-        _utilityArray = utilityArray;
+        _weights = ArrayHandler.makeCopy(weights);
     }
     
     public int getStateUtility(TetrisState predictedState) {

@@ -13,6 +13,7 @@ public abstract class AiEvaluator {
     protected abstract int numberOfTrials();
     
     private int evaluatePerformance(MovePicker movePicker) {
+        resetPieceNumber();
         TetrisState s = new TetrisState();
 		while(!s.hasLost()) {
             alterPieceNumber(s);
@@ -20,8 +21,10 @@ public abstract class AiEvaluator {
             int move = movePicker.pickMove(s, legalMoves);
 			s.makeMove(move);
         }
-        return s.getRowsCleared();
+        int performance = s.getRowsCleared();
+        return performance;
     }       
     
+    protected abstract void resetPieceNumber();
     protected abstract void alterPieceNumber(TetrisState s);
 }

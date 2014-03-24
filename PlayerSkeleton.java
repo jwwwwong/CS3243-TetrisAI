@@ -1,6 +1,6 @@
 
 public class PlayerSkeleton {
-    static int[] _weights = {-17, -2, 0};
+    static int[] _weights = {-37, -28, 5};
     MovePicker _movePicker = new MovePicker1Ply();
     {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
@@ -13,29 +13,35 @@ public class PlayerSkeleton {
     private static void runMovePicker(MovePicker movePicker) {        
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         utilityCalculator.setWeights(_weights);
-        AiEvaluator evaluator = new IncrementalSequenceEvalutor(); 		
+        AiEvaluator evaluator = new IncrementalSequenceEvaluator(); 		
  		int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
         System.out.print(performance);
         System.out.println();
+        System.out.print("Weights used: ");
+        ArrayHandler.print(_weights);
+        System.out.println();        
     }
     
     private static void runMovePicker1Ply() {
-        System.out.print("MovePicker1Ply rows cleared: ");
+        System.out.print("MovePicker1Ply performance: "); // performance refers to total number of rows cleared
         runMovePicker(new MovePicker1Ply());
+        System.out.println();        
     }
     
     private static void runMovePicker2Ply() {
-        System.out.print("MovePicker2Ply rows cleared: ");
+        System.out.print("MovePicker2Ply performance: ");
         runMovePicker(new MovePicker2Ply());
+        System.out.println();        
     }
     
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         MovePicker movePicker = new MovePicker1Ply();
-        AiEvaluator evaluator = new IncrementalSequenceEvalutor();
+        AiEvaluator evaluator = new IncrementalSequenceEvaluator();
  		Optimizer optimizer = new HillClimbingOptimizer();
 
         optimizer.optimize(utilityCalculator, movePicker, evaluator);
+        System.out.println();        
     }
     
     private static void runNormalGame() {
@@ -56,7 +62,7 @@ public class PlayerSkeleton {
     }
 	
 	public static void main(String[] args) {
-		runOptimizer();
+		//runOptimizer();
         runMovePicker1Ply();
         runMovePicker2Ply();
 	}
