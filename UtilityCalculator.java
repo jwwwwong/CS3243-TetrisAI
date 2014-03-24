@@ -1,14 +1,10 @@
 
 public class UtilityCalculator {
     private int _weights[] = {-1, 0};
-    private Utility[] _utilityArray;
-
-    public UtilityCalculator() {
-        _utilityArray = new Utility[]{  
+    private Utility[] _utilityArray = new Utility[]{  
                                         new MaxHeightUtility(),
                                         new HoleCountUtility()
                                      };
-    }
     
     public int[] getWeights() {
         return _weights;

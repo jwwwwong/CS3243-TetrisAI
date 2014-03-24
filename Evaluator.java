@@ -1,6 +1,7 @@
 
 public abstract class Evaluator {            
-    public int evaluateAveragePerformance(MovePicker movePicker) {
+    public int evaluateAveragePerformance(MovePicker movePicker, UtilityCalculator utilityCalculator) {
+        movePicker.setUtilityCalculator(utilityCalculator);
         int performance = 0;
         int trials = numberOfTrials();
         for(int i = 0; i < trials; i++) {

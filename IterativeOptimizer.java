@@ -1,9 +1,7 @@
 
 public class IterativeOptimizer extends Optimizer {
     @Override
-    public void optimize(MovePicker movePicker, Evaluator evaluator) {
-        UtilityCalculator utilityCalculator = new UtilityCalculator();
-        movePicker.setUtilityCalculator(utilityCalculator);
+    public void optimize(UtilityCalculator utilityCalculator, MovePicker movePicker, Evaluator evaluator) {
         int[] bestWeights = new int[utilityCalculator.getWeights().length];
         int testCount = 0;
         int bestPerformance = 0;
@@ -11,7 +9,7 @@ public class IterativeOptimizer extends Optimizer {
             for(int j = -10; j < 10; j++) {
                 int[] weights = {i, j};
                 utilityCalculator.setWeights(weights);
-                int performance = evaluator.evaluateAveragePerformance(movePicker);
+                int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
                 if(performance > bestPerformance) {
                     bestPerformance = performance;
                     bestWeights = weights;

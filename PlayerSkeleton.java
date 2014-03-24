@@ -10,10 +10,12 @@ public class PlayerSkeleton {
 	}
     
     private static void runOptimizer() {
+        UtilityCalculator utilityCalculator = new UtilityCalculator();
         MovePicker movePicker = new SimpleMovePicker();
         Evaluator evaluator = new IncrementalSequenceEvalutor();
-		Optimizer optimizer = new IterativeOptimizer();
-        optimizer.optimize(movePicker, evaluator);
+ 		Optimizer optimizer = new IterativeOptimizer();
+
+        optimizer.optimize(utilityCalculator, movePicker, evaluator);
     }
     
     private static void runNormalGame() {
