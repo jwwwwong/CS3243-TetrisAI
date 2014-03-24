@@ -114,7 +114,7 @@ public class TetrisState {
 	}
     
     public void printField() {
-        print(field);
+        Printer.print(field);
     }
     
     private int[] makeCopy(int[] arr) {
@@ -133,18 +133,6 @@ public class TetrisState {
         return copy;
 	}
     
-	public static void print(int[][] arr) {
-        for(int i = 0; i < arr.length; i++) {
-            int[] subArr = arr[i];
-            System.out.print("row " + i + ": ");
-            for(int j = 0; j < subArr.length; j++) {
-                int square = subArr[j];
-                System.out.print(square + ", ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
     
     public void copyState(State s) {
         field = makeCopy(s.getField());
