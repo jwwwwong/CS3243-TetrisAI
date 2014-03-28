@@ -1,30 +1,22 @@
 
 public class HoleCountUtility extends Utility {    
     @Override
-    public int evaluate(TetrisState predictedState) {
-        return getNumberOfHoles(predictedState.getField());
-    }
-     public static int getNumberOfHoles(int[][] field) {
+    public int evaluate(TetrisState predictedState) {        
         int totalHoles = 0;
-        for(int col = 0; col < State.COLS; col++) {
-            int colHoles = 0;
-            boolean prevSquareIsHole = false;
-            int currHoles = 0;
-            for(int j = 0; j < State.ROWS; j++) {
-                int currSquare = field[j][col];
-                if(prevSquareIsHole && currSquare != 0) {
-                    colHoles += currHoles;
-                    currHoles = 0;
-                }                    
-                if(currSquare == 0) {
-                    currHoles++;
-                    prevSquareIsHole = true;
-                }  else {
-                    prevSquareIsHole = false;
+        int[][] field = predictedState.getField();
+        int[] top = predictedState.getTop();
+        for(int colIndex = 0; colIndex < State.COLS; colIndex++) {
+            for(int rowIndex = top[colIndex]-1; rowIndex > 0; rowIndex--) {
+                boolean currSquareIsFilled = false;
+                if(field[rowIndex][colIndex] != 0) {
+                    currSquareIsFilled = true;
+                }
+                if(!currSquareIsFilled) {
+                    totalHoles++;
                 }
             }
-            totalHoles += colHoles;
         }
         return totalHoles;
-	}
+    }
+    
 }

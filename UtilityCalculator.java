@@ -1,11 +1,13 @@
 
 public class UtilityCalculator {
-    private double[] _weights = {0, 0, 0, 0};
+    private double[] _weights = {0, 0, 0, 0, 0, 0};
     private Utility[] _utilityArray = new Utility[] {  
-                                        new MaxHeightUtility(),
-                                        new HoleCountUtility(),
+                                        new HeightUtility(),
                                         new RowsClearedUtility(),
-                                        new SurvivalUtility()
+                                        new RowTransitionsUtility(),
+                                        new ColumnTransitionsUtility(),
+                                        new HoleCountUtility(),
+                                        new WellSumUtility()
                                      };
     
     public double[] getWeights() {

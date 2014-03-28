@@ -1,12 +1,6 @@
 
 import java.awt.Color;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 public class TetrisState {
     public static final int COLS = 10;
 	public static final int ROWS = 21;
@@ -127,6 +121,10 @@ public class TetrisState {
         ArrayHandler.print(field);
     }        
     
+    public void setField(int[][] newField) {
+        field = newField;
+    }
+    
     public void copyState(TetrisState s) {
         field = ArrayHandler.makeCopy(s.getField());
         top = ArrayHandler.makeCopy(s.getTop());
@@ -145,6 +143,10 @@ public class TetrisState {
     
 	public int[][] getField() {
 		return field;
+	}
+    
+	public void setTop(int[] newTop) {
+        top = newTop;
 	}
 
 	public int[] getTop() {
@@ -195,6 +197,9 @@ public class TetrisState {
 		return turn;
 	}
 	
+    public void setTurnNumber(int newTurnNumber) {
+        turn = newTurnNumber;
+    }
 	
 	
 	
