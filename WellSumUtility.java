@@ -5,8 +5,7 @@ public class WellSumUtility extends Utility {
         int[][] field = predictedState.getField();
         int[] top = predictedState.getTop();
         for(int colIndex = 0; colIndex < TetrisState.COLS; colIndex++) {
-            for(int rowIndex = top[colIndex]-1; rowIndex > 0; rowIndex--) {
-                boolean isWellSquare = false;
+            for(int rowIndex = top[colIndex]; rowIndex < TetrisState.ROWS; rowIndex++) {
                 boolean isSquareEmpty = false;
                 if(field[rowIndex][colIndex] != 0) {
                     isSquareEmpty = true;
