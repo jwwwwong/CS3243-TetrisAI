@@ -1,6 +1,6 @@
 
 public class UtilityCalculator {
-    private int[] _weights = {0, 0, 0, 0};
+    private double[] _weights = {0, 0, 0, 0};
     private Utility[] _utilityArray = new Utility[] {  
                                         new MaxHeightUtility(),
                                         new HoleCountUtility(),
@@ -8,11 +8,11 @@ public class UtilityCalculator {
                                         new SurvivalUtility()
                                      };
     
-    public int[] getWeights() {
+    public double[] getWeights() {
         return ArrayHandler.makeCopy(_weights);
     }
     
-    public void setWeights(int weights[]) {
+    public void setWeights(double weights[]) {
         _weights = ArrayHandler.makeCopy(weights);
     }
     

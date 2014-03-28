@@ -11,9 +11,9 @@ public class HillClimbingOptimizer extends Optimizer {
         
         int currentUtilityIndex = 0;
         
-        int[] weights = utilityCalculator.getWeights();       
+        double[] weights = utilityCalculator.getWeights();       
         int utilityCount = weights.length;
-        int[] bestWeights = ArrayHandler.makeCopy(weights);
+        double[] bestWeights = ArrayHandler.makeCopy(weights);
         
         int previousPerformance = 0;
         int bestPerformance = 0;
@@ -59,7 +59,7 @@ public class HillClimbingOptimizer extends Optimizer {
         ArrayHandler.print(bestWeights);
     }
     
-    private int testPerformance(int[] weights, UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
+    private int testPerformance(double[] weights, UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
         utilityCalculator.setWeights(weights);
         int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
         System.out.println("Performance: " + performance);

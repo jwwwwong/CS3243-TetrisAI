@@ -20,6 +20,7 @@ public class TetrisState {
 	private int turn = 0;
 	private int totalRowsCleared = 0;
 	private int currentRowsCleared = 0;
+    private int currentPieceLandingHeight = 0;
 	
 	//each square in the grid - int means empty - other values mean the turn it was placed
 	private int[][] field = new int[ROWS][COLS];
@@ -30,7 +31,8 @@ public class TetrisState {
 	
 	//number of next piece
 	protected int nextPiece;
-	
+	protected int prevPiece = 0;
+	protected int prevPieceHeight = 0;
 	
 	
 	//all legal moves - first index is piece type - then a list of 2-length arrays
@@ -169,7 +171,14 @@ public class TetrisState {
         return pTop;
     }
 
-
+    public int getPrevPieceHeight() {
+        return prevPieceHeight;
+    }
+    
+    public int getPrevPiece() {
+        return prevPiece;
+    }
+    
 	public int getNextPiece() {
 		return nextPiece;
 	}
@@ -210,6 +219,10 @@ public class TetrisState {
 		makeMove(move[ORIENT],move[SLOT]);
 	}
 	
+    public int getCurrentPieceLandingHeight() {
+        return currentPieceLandingHeight;
+    }
+    
 	//returns false if you lose - true otherwise
 	public boolean makeMove(int orient, int slot) {
 		turn++;
@@ -219,7 +232,9 @@ public class TetrisState {
 		for(int c = 1; c < pWidth[nextPiece][orient];c++) {
 			height = Math.max(height,top[slot+c]-pBottom[nextPiece][orient][c]);
 		}
-		
+		currentPieceLandingHeight = height;       
+        prevPieceHeight = pHeight[nextPiece][orient];
+        prevPiece = nextPiece;
 		//check if game ended
 		if(height+pHeight[nextPiece][orient] >= ROWS) {
 			lost = true;
@@ -273,8 +288,6 @@ public class TetrisState {
 
 		//pick a new piece
 		nextPiece = randomPiece();
-		
-
 		
 		return true;
 	}

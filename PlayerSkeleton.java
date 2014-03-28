@@ -1,6 +1,6 @@
 
 public class PlayerSkeleton {
-    static int[] _weights = {-1, 0, 0, 0};
+    static double[] _weights = {-1, 0, 0, 0};
     
     MovePicker _movePicker = new MovePicker1Ply();
     UtilityCalculator _utilityCalculator = new UtilityCalculator();
@@ -61,9 +61,9 @@ public class PlayerSkeleton {
     }
 	
 	public static void main(String[] args) {
-		//runOptimizer();
-        runMovePicker1Ply();
-        runMovePicker2Ply();
+		runOptimizer();
+        //runMovePicker1Ply();
+        //runMovePicker2Ply();
 	}
 	
 }
