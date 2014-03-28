@@ -8,14 +8,14 @@ public class MovePicker2Ply extends MovePicker {
             TetrisState predictedState1 = new TetrisState();   
             predictedState1.copyState(currentState);
             predictedState1.makeMove(i);
-            int totalMoveUtility = 0;
+            double totalMoveUtility = 0;
             for(int j = 0; j < TetrisState.N_PIECES; j++) {
                 predictedState1.setNextPiece(j);
                 for(int k = 0; k < predictedState1.legalMoves().length; k++) {
                     TetrisState predictedState2 = new TetrisState();   
                     predictedState2.copyState(predictedState1);
                     predictedState2.makeMove(k);             
-                    int moveUtility = utilityCalculator.getStateUtility(predictedState2);
+                    double moveUtility = utilityCalculator.getStateUtility(predictedState2);
                     totalMoveUtility += moveUtility;                           
                 }
             }

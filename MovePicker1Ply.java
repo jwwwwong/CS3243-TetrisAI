@@ -9,7 +9,7 @@ public class MovePicker1Ply extends MovePicker {
             TetrisState predictedState = new TetrisState();   
             predictedState.copyState(currentState);
             predictedState.makeMove(i);
-			int moveUtility = utilityCalculator.getStateUtility(predictedState);
+			double moveUtility = utilityCalculator.getStateUtility(predictedState);
 			if(moveUtility > bestMoveUtility) {
 				bestMoveIndex = i;
 				bestMoveUtility = moveUtility;
