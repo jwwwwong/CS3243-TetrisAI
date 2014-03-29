@@ -59,7 +59,21 @@ public class ParticleSwarmOptimizer extends Optimizer {
 			{
 				particle[j].setGlobalBestPostion(globalBestPosition);
 			}
-			System.out.println("Global best: " +globalBestFitness);
+    		System.out.println("Global best: " +globalBestFitness);
+//			System.out.println("Global best parameters:");
+//			for(int j=0; j<dimension; j++)
+//			{
+//				System.out.print(globalBestPosition[j]);
+//				if(j!=dimension-1)
+//				{
+//					System.out.print(",");
+//				}
+//				else
+//				{
+//					System.out.println();
+//				}
+//					
+//			}
 			
 		}
 

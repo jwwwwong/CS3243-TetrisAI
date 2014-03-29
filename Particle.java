@@ -15,8 +15,10 @@ public class Particle implements Runnable{
      static private final double GLOBAL_WEIGHT=1.4;
      private boolean firstRun;
      
-     
+     AiEvaluator evaluator;
      private int dimension;
+     MovePicker movePicker;
+     UtilityCalculator utilityCalculator;
       
      
     public Particle(int particleID,int dimension, double maxSearchRange, double minSearchRange) {
@@ -41,7 +43,9 @@ public class Particle implements Runnable{
     	}
     	particleBestPosition=ArrayHandler.makeCopy(curPosition);
     	
-    	
+    	evaluator = new IncrementalSequenceEvaluator();
+		 utilityCalculator = new UtilityCalculator();
+	      movePicker = new MovePicker1Ply();
     	
     	
     	
@@ -52,9 +56,7 @@ public class Particle implements Runnable{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		  AiEvaluator evaluator = new IncrementalSequenceEvaluator();
-		  UtilityCalculator utilityCalculator = new UtilityCalculator();
-	      MovePicker movePicker = new MovePicker1Ply();
+		  
 	      
 	      if(!firstRun)
 	      {
