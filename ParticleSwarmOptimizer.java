@@ -2,7 +2,7 @@
 public class ParticleSwarmOptimizer extends Optimizer {
 
 	final static int MAX_ITERATION=100000;
-	final static int NUM_PARTICLE=6;
+	final static int NUM_PARTICLE=8;
 	final static double MIN_SEARCH_RANGE=-100;
 	final static double MAX_SEARCH_RANGE=100;
 	private int globalBestFitness=-1;
@@ -58,20 +58,20 @@ public class ParticleSwarmOptimizer extends Optimizer {
 				particle[j].setGlobalBestPostion(globalBestPosition);
 			}
     		System.out.println("Global best: " +globalBestFitness);
-//			System.out.println("Global best parameters:");
-//			for(int j=0; j<dimension; j++)
-//			{
-//				System.out.print(globalBestPosition[j]);
-//				if(j!=dimension-1)
-//				{
-//					System.out.print(",");
-//				}
-//				else
-//				{
-//					System.out.println();
-//				}
-//					
-//			}
+			System.out.println("Global best parameters:");
+			for(int j=0; j<dimension; j++)
+			{
+				System.out.print(globalBestPosition[j]);
+				if(j!=dimension-1)
+				{
+					System.out.print(",");
+				}
+				else
+				{
+					System.out.println();
+				}
+					
+			}
 			
 		}
 

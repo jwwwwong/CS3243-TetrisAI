@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 
@@ -68,15 +72,59 @@ public class Particle implements Runnable{
 	    	  }
 	    	
 	      }
-	      
+//	        File file = new File("C:/Users/A0081205/Dropbox/CS3243 workplace/good.txt");
+//	      
+//	    	if (!file.exists()) {
+//				try {
+//					file.createNewFile();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+// 
+//			
+	        
+	        String string="current parameters:";
+			for(int j=0; j<dimension; j++)
+			{
+				string+=curPosition[j];
+				if(j!=dimension-1)
+				{
+					string+=",";
+				}
+				else
+				{
+					string+="\n";
+				}
+					
+			}
+			System.out.println(string);
+			
+//			FileWriter fw;
+//			try {
+//				fw = new FileWriter(file.getAbsoluteFile());
+//				BufferedWriter bw = new BufferedWriter(fw);
+//				bw.write(string);
+//				bw.close();
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//			
+//		
+// 
+//			System.out.println("Done");
+			
+			
 	      
 	      utilityCalculator.setWeights(curPosition);
 	    
-	     System.out.println("Particle "+particleID+" still running");
+	  //   System.out.println("Particle "+particleID+" still running");
 	     
 	     int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
 	    
-	     System.out.println("Particle "+particleID+" stop running");
+	  //   System.out.println("Particle "+particleID+" stop running");
 	      
 	      if(performance>particleBestFitness)
 	      {
