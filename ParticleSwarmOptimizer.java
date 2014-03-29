@@ -29,35 +29,41 @@ public class ParticleSwarmOptimizer extends Optimizer {
 
 			for(int j=0; j<NUM_PARTICLE; j++)
 			{
-//				particleThread[j]= new Thread(particle[j]);
-//				particleThread[j].run();
-				particle[j].run();
+				particleThread[j]= new Thread(particle[j]);
+				particleThread[j].run();
+				//				particle[j].run();
 			}
-			
+
 
 			for(int j=0; j<NUM_PARTICLE; j++)
 			{
 				{
-				//	particleThread[j].join();
-					
-					int personalBest= particle[j].getParticleBestFitness();
-					if(personalBest>globalBestFitness)
-					{
-						globalBestFitness=personalBest;
-						globalBestPosition=ArrayHandler.makeCopy(particle[j].getParticleBestPosition());
-						
+					try {
+						particleThread[j].join();
+
+
+						int personalBest= particle[j].getParticleBestFitness();
+						if(personalBest>globalBestFitness)
+						{
+							globalBestFitness=personalBest;
+							globalBestPosition=ArrayHandler.makeCopy(particle[j].getParticleBestPosition());
+
+						}
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-					
+
 				} 
-				
-			
+
+
 			}
-			
+
 			for(int j=0; j<NUM_PARTICLE; j++)
 			{
 				particle[j].setGlobalBestPostion(globalBestPosition);
 			}
-    		System.out.println("Global best: " +globalBestFitness);
+			System.out.println("Global best: " +globalBestFitness);
 			System.out.println("Global best parameters:");
 			for(int j=0; j<dimension; j++)
 			{
@@ -70,9 +76,9 @@ public class ParticleSwarmOptimizer extends Optimizer {
 				{
 					System.out.println();
 				}
-					
+
 			}
-			
+
 		}
 
 	}

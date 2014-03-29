@@ -47,7 +47,7 @@ public class Particle implements Runnable{
     	}
     	particleBestPosition=ArrayHandler.makeCopy(curPosition);
     	
-    	evaluator = new IncrementalSequenceEvaluator();
+    	evaluator = new RandomSequenceEvaluator();
 		 utilityCalculator = new UtilityCalculator();
 	      movePicker = new MovePicker1Ply();
     	
@@ -84,22 +84,22 @@ public class Particle implements Runnable{
 //			}
 // 
 //			
-	        
-	        String string="current parameters:";
-			for(int j=0; j<dimension; j++)
-			{
-				string+=curPosition[j];
-				if(j!=dimension-1)
-				{
-					string+=",";
-				}
-				else
-				{
-					string+="\n";
-				}
-					
-			}
-			System.out.println(string);
+//	        
+//	        String string="current parameters:";
+//			for(int j=0; j<dimension; j++)
+//			{
+//				string+=curPosition[j];
+//				if(j!=dimension-1)
+//				{
+//					string+=",";
+//				}
+//				else
+//				{
+//					string+="\n";
+//				}
+//					
+//			}
+//			System.out.println(string);
 			
 //			FileWriter fw;
 //			try {
