@@ -29,16 +29,14 @@ public class ParticleSwarmOptimizer extends Optimizer {
 
 			for(int j=0; j<NUM_PARTICLE; j++)
 			{
-//				particleThread[j]= new Thread(particle[j]);
-//				particleThread[j].run();
-				particle[j].run();
+				particleThread[j]= new Thread(particle[j]);
+				particleThread[j].run();
 			}
-			
 
 			for(int j=0; j<NUM_PARTICLE; j++)
 			{
-				{
-				//	particleThread[j].join();
+				try {
+					particleThread[j].join();
 					
 					int personalBest= particle[j].getParticleBestFitness();
 					if(personalBest>globalBestFitness)
@@ -48,7 +46,11 @@ public class ParticleSwarmOptimizer extends Optimizer {
 						
 					}
 					
-				} 
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					System.out.print("error");
+					e.printStackTrace();
+				}
 				
 			
 			}

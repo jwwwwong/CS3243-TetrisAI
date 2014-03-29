@@ -27,7 +27,7 @@ public class Particle implements Runnable{
     	this.dimension=dimension;
     	this.particleBestFitness=0;
     	firstRun=true;
-    	this.particleID=particleID;
+    	
     	curPosition= new double[dimension];
     	curVelocity= new double[dimension];
     	particleBestPosition= new double [dimension];
@@ -72,11 +72,11 @@ public class Particle implements Runnable{
 	      
 	      utilityCalculator.setWeights(curPosition);
 	    
-	     System.out.println("Particle "+particleID+" still running");
+	   //  System.out.println("Particle "+particleID+" still running");
 	     
 	     int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
 	    
-	     System.out.println("Particle "+particleID+" stop running");
+	   //  System.out.println("Particle "+particleID+" stop running");
 	      
 	      if(performance>particleBestFitness)
 	      {
