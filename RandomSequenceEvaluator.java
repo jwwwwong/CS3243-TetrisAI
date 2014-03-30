@@ -3,7 +3,7 @@ public class RandomSequenceEvaluator extends AiEvaluator {
 
     @Override
     protected int numberOfTrials() {
-        return 3;
+        return 5;
     }
 
     @Override
