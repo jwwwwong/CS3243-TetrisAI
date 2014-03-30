@@ -129,7 +129,7 @@ public class Particle implements Runnable{
 	      if(performance>particleBestFitness)
 	      {
 	    	  particleBestFitness=performance;
-	    	  particleBestPosition=ArrayHandler.makeCopy(particleBestPosition);
+	    	  particleBestPosition=ArrayHandler.makeCopy(curPosition);
 	      }
 	      
 	      
