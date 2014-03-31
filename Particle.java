@@ -10,9 +10,9 @@ public class Particle implements Runnable{
      private double[] particleBestPosition;
      
      private double[] globalBestPostion;
-     static private final double INERTIA_WEIGHT= 0.7;
-     static private final double PERSONAL_WEIGHT=1.4;
-     static private final double GLOBAL_WEIGHT=1.4;
+     static public final double INERTIA_WEIGHT= 0.7;
+     static public final double PERSONAL_WEIGHT=1.4;
+     static public final double GLOBAL_WEIGHT=1.4;
      private boolean firstRun;
      
      AiEvaluator evaluator;
