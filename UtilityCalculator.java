@@ -25,4 +25,8 @@ public class UtilityCalculator {
         }
         return  utility;
     }   
+    
+    public UtilityCalculator copy() {
+        return new UtilityCalculator();
+    }
 }

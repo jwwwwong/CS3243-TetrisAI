@@ -6,4 +6,5 @@ public abstract class MovePicker {
         return pickMove(t, legalMoves, utilityCalculator);
     }
     public abstract int pickMove(TetrisState currentState, int[][] legalMoves, UtilityCalculator utilityCalculator);
+    public abstract MovePicker copy();
 }

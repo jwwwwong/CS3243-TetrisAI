@@ -39,8 +39,8 @@ public class PlayerSkeleton {
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         MovePicker movePicker = new MovePicker1Ply();
-        AiEvaluator evaluator = new IncrementalSequenceEvaluator();
- 		Optimizer optimizer = new HillClimbingOptimizer();
+        AiEvaluator evaluator = new RandomSequenceEvaluator();
+ 		Optimizer optimizer = new ParticleSwarmOptimizer();
 
         optimizer.optimize(utilityCalculator, movePicker, evaluator);
         System.out.println();        
@@ -66,8 +66,8 @@ public class PlayerSkeleton {
     }
 	
 	public static void main(String[] args) {
-        runNormalGame();
-		//runOptimizer();
+        //runNormalGame();
+		runOptimizer();
         //runMovePicker1Ply();
         //runMovePicker2Ply();
 	}

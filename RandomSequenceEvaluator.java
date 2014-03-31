@@ -13,5 +13,9 @@ public class RandomSequenceEvaluator extends AiEvaluator {
     @Override
     protected void resetPieceNumber() {
     }
-    
+
+    @Override
+    protected AiEvaluator copy() {
+        return new RandomSequenceEvaluator();
+    }
 }

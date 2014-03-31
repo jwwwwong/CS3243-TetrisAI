@@ -26,4 +26,5 @@ public abstract class AiEvaluator {
     
     protected abstract void resetPieceNumber();
     protected abstract void alterPieceNumber(TetrisState s);
+    protected abstract AiEvaluator copy();
 }

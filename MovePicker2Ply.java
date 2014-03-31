@@ -26,4 +26,9 @@ public class MovePicker2Ply extends MovePicker {
 		}
 		return bestMoveIndex;
     }
+
+    @Override
+    public MovePicker copy() {
+        return new MovePicker2Ply();
+    }
 }

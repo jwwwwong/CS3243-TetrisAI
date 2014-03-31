@@ -57,4 +57,9 @@ public class IncrementalSequenceEvaluator extends AiEvaluator {
         _pieceNumber = 0;
         _shouldIncrement = false;
     }
+
+    @Override
+    protected AiEvaluator copy() {
+        return new IncrementalSequenceEvaluator();
+    }
 }

@@ -21,7 +21,7 @@ public class Particle implements Runnable{
      UtilityCalculator utilityCalculator;
       
      
-    public Particle(int particleID,int dimension, double maxSearchRange, double minSearchRange) {
+    public Particle(int particleID,int dimension, double maxSearchRange, double minSearchRange, AiEvaluator evaluator, UtilityCalculator utilityCalculator, MovePicker movePicker) {
 		this.dimension=dimension;
     	this.particleBestFitness=0;
     	firstRun=true;
@@ -39,9 +39,9 @@ public class Particle implements Runnable{
     	}
     	particleBestPosition=ArrayHandler.makeCopy(curPosition);
     	
-    	evaluator = new RandomSequenceEvaluator();
-		utilityCalculator = new UtilityCalculator();
-	    movePicker = new MovePicker1Ply();    	
+    	this.evaluator = evaluator.copy();
+		this.utilityCalculator = utilityCalculator.copy();
+	    this.movePicker = movePicker.copy();
 	} 
     
 	@Override
