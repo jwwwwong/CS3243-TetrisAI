@@ -21,7 +21,7 @@ public class Particle implements Runnable{
      UtilityCalculator utilityCalculator;
       
      
-    public Particle(int particleID,int dimension, double maxSearchRange, double minSearchRange, AiEvaluator evaluator, UtilityCalculator utilityCalculator, MovePicker movePicker) {
+    public Particle(int particleID,int dimension, double maxSearchRange, double minSearchRange, UtilityCalculator utilityCalculator, MovePicker movePicker, AiEvaluator evaluator) {
 		this.dimension=dimension;
     	this.particleBestFitness=0;
     	firstRun=true;

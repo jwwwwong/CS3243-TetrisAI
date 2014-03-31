@@ -18,7 +18,7 @@ public class ParticleSwarmOptimizer extends Optimizer {
 		globalBestFitness = 0;
 		particle = new Particle[NUM_PARTICLE];
 		for(int i = 0; i < NUM_PARTICLE; i++) {
-			particle[i]= new Particle(i, dimension, MAX_SEARCH_RANGE, MIN_SEARCH_RANGE);
+			particle[i]= new Particle(i, dimension, MAX_SEARCH_RANGE, MIN_SEARCH_RANGE, utilityCalculator, movePicker, evaluator);
 		}
 
 		Thread [] particleThread =new Thread[NUM_PARTICLE];
