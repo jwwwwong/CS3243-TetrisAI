@@ -2,18 +2,17 @@ public class UtilityTester {
     private void testUtility(Utility utility, TetrisState state) {        
         System.out.println(utility.evaluate(state));
     }
-    
     private static TetrisState getState1() {
         TetrisState state = new TetrisState();
-        int[] top =         {3, 2, 3, 2, 2, 2, 2, 2, 2, 2};
+        int[] top =      {3, 7, 3, 5, 5, 2, 2, 2, 7, 2};
         int[][] field1 = {
                             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                            {1, 0, 1, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {1, 1, 1, 1, 1, 0, 0, 0, 1, 0},
+                            {0, 1, 0, 1, 1, 0, 0, 0, 1, 0},
+                            {0, 1, 0, 1, 1, 0, 0, 0, 1, 0},
+                            {0, 1, 0, 0, 0, 0, 0, 0, 1, 0},
+                            {0, 1, 0, 0, 0, 0, 0, 0, 1, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -33,7 +32,7 @@ public class UtilityTester {
         state.setNextPiece(0);
         state.setTurnNumber(1);
         state.setTop(top);
-        state.makeMove(0);
+        //state.makeMove(10);
         state.printField();
         return state;
     }

@@ -1,7 +1,6 @@
 
 public class PlayerSkeleton {
-    static double[] _weights = {-4.500158825082766, 3.4181268101392694, -3.2178882868487753, -9.348695305445199, -7.899265427351652, -3.3855972247263626};
-    
+    static double[] _weights = {-4.500158825082766, 3.4181268101392694, -3.2178882868487753, -9.348695305445199, -7.899265427351652, -3.3855972247263626};    
     MovePicker _movePicker = new MovePicker1Ply();
     UtilityCalculator _utilityCalculator = new UtilityCalculator();
     {
@@ -49,11 +48,17 @@ public class PlayerSkeleton {
     private static void runNormalGame() {
         State s = new State();
 		new TFrame(s);
+        int count = 0;
+        int interval = 1000;
 		PlayerSkeleton p = new PlayerSkeleton();
 		while(!s.hasLost()) {
 			s.makeMove(p.pickMove(s,s.legalMoves()));
 			s.draw();
 			s.drawNext(0,0);
+            if(count % interval == 0) {
+                System.out.println("rows cleared: " + s.getRowsCleared());
+            }
+            count++;
 			/*
             try {
 				Thread.sleep(10);
@@ -66,8 +71,8 @@ public class PlayerSkeleton {
     }
 	
 	public static void main(String[] args) {
-        //runNormalGame();
-		runOptimizer();
+        runNormalGame();
+		//runOptimizer();
         //runMovePicker1Ply();
         //runMovePicker2Ply();
 	}
