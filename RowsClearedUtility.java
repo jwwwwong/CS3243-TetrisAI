@@ -1,6 +1,6 @@
 public class RowsClearedUtility extends Utility {
     @Override
-    public int evaluate(TetrisState predictedState) {
+    public double evaluate(TetrisState predictedState) {
         return predictedState.getCurrentRowsCleared();
     }
 }

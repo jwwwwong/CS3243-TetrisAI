@@ -1,7 +1,7 @@
 
 public class MaxHeightUtility extends Utility {
     @Override
-    public int evaluate(TetrisState predictedState) {
+    public double evaluate(TetrisState predictedState) {
         return getMaxHeight(predictedState.getTop());
     }
     

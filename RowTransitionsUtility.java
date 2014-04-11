@@ -1,16 +1,12 @@
 public class RowTransitionsUtility extends  Utility {
     @Override
-    public int evaluate(TetrisState predictedState) {
+    public double evaluate(TetrisState predictedState) {
         int rowTransitions = 0;
-        boolean isPrevCellFilled = false;
+        boolean isPrevCellFilled = true;
         int[][] field = predictedState.getField();
-        for(int i = 0; i < field.length; i++) {
+        for(int i = 0; i < TetrisState.ROWS - 1; i++) {
             int[] row = field[i];
-            isPrevCellFilled = false;
-            if(row[0] != 0) {
-                isPrevCellFilled = true;
-            }
-            for(int j = 1; j < row.length; j++) {
+            for(int j = 0; j < TetrisState.COLS; j++) {
                 boolean isCurrentCellFilled = false;
                 if(row[j] != 0) {
                     isCurrentCellFilled = true;
@@ -20,6 +16,10 @@ public class RowTransitionsUtility extends  Utility {
                 }
                 isPrevCellFilled = isCurrentCellFilled;
             }
+            if(!isPrevCellFilled) {
+                rowTransitions++;
+            }
+            isPrevCellFilled = true;
         }
         return rowTransitions;
     }    

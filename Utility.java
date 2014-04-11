@@ -1,4 +1,4 @@
 
 public abstract class Utility {
-    public abstract int evaluate(TetrisState predictedState);
+    public abstract double evaluate(TetrisState predictedState);
 }

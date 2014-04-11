@@ -1,6 +1,6 @@
 public class WellSumUtility extends Utility {
     @Override
-    public int evaluate(TetrisState predictedState) {
+    public double evaluate(TetrisState predictedState) {
         int wellSum = 0;
         int[][] field = predictedState.getField();
         int[] top = predictedState.getTop();
@@ -16,14 +16,11 @@ public class WellSumUtility extends Utility {
                     rowStartIndex = top[colIndex + 1];
                 }
             }
-            rowStartIndex--;
+            rowStartIndex = rowStartIndex - 1;
             for(int rowIndex = rowStartIndex; rowIndex >= 0; rowIndex--) {                                
                 boolean isSquareEmpty = true;
                 if(field[rowIndex][colIndex] != 0) {
                     isSquareEmpty = false;
-                }
-                if(!isSquareEmpty) {
-                    break;
                 }
                 boolean isSquareOnLeftFilled = false;
                 boolean isSquareOnRightFilled = false;
@@ -33,8 +30,15 @@ public class WellSumUtility extends Utility {
                 if(colIndex == TetrisState.COLS-1 || field[rowIndex][colIndex + 1] != 0) {
                     isSquareOnRightFilled = true;
                 }
-                if(isSquareOnLeftFilled && isSquareOnRightFilled) {
+                if(isSquareEmpty && isSquareOnLeftFilled && isSquareOnRightFilled) {                    
                     wellSum++;
+                    for(int wellIndex = rowIndex - 1; wellIndex >= 0; wellIndex--) {
+                        if(field[wellIndex][colIndex] == 0) {
+                            wellSum++;
+                        } else {
+                            break;
+                        }
+                    }
                 }
             }
         }
