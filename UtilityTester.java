@@ -44,7 +44,7 @@ public class UtilityTester {
         
         int[] top = getTop(field);
         state.setField(field);
-        state.setNextPiece(1);
+        state.setNextPiece(6);
         state.setTurnNumber(0);
         state.setTop(top);
         state.makeMove(0);
@@ -53,12 +53,16 @@ public class UtilityTester {
     
     private static int[][] createField(int[] binaryField) {
         int[][] field = new int[TetrisState.ROWS][TetrisState.COLS];
-        
+        for(int i = 0; i < TetrisState.ROWS - 1; i++) {
+            for(int j = 0; j < TetrisState.COLS; j++) {
+                field[i][j] = (binaryField[i] >> j) & 1;
+            }
+        }
         return field;
     }
     private static TetrisState getState2() {    
         TetrisState state = new TetrisState();
-        int[] binaryField = {384,768,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] binaryField = {1007,767,767,1019,992,768,512,512,512,768,768,0,0,0,0,0,0,0,0,0 };
         int[][] field = createField(binaryField);
         
         int[] top = getTop(field);
@@ -71,20 +75,20 @@ public class UtilityTester {
     }
     
 	public static void main(String[] args) {       
-        TetrisState state1 = getState1();
-        state1.printField();
+        TetrisState state = getState2();
+        state.printField();
         UtilityTester tester = new UtilityTester();
         System.out.print("Height ");
-        tester.testUtility(new HeightUtility(), state1);
+        tester.testUtility(new HeightUtility(), state);
         System.out.print("Row Cleared ");
-        tester.testUtility(new RowsClearedUtility(), state1);
+        tester.testUtility(new RowsClearedUtility(), state);
         System.out.print("Row Transitions ");
-        tester.testUtility(new RowTransitionsUtility(), state1);
+        tester.testUtility(new RowTransitionsUtility(), state);
         System.out.print("Column Transitions ");
-        tester.testUtility(new ColumnTransitionsUtility(), state1);
+        tester.testUtility(new ColumnTransitionsUtility(), state);
         System.out.print("Hole Count ");
-        tester.testUtility(new HoleCountUtility(), state1);
+        tester.testUtility(new HoleCountUtility(), state);
         System.out.print("Well Sum ");
-        tester.testUtility(new WellSumUtility(), state1);
+        tester.testUtility(new WellSumUtility(), state);
 	}
 }
