@@ -15,15 +15,16 @@ public class UtilityTester {
         }
         return top;
     }
+    
     private static TetrisState getState1() {    
         TetrisState state = new TetrisState();
-        int[][] field1 = {
-                            {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
-                            {1, 1, 1, 1, 1, 0, 1, 1, 1, 1},
-                            {0, 1, 1, 0, 0, 0, 1, 0, 1, 1},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+        int[][] field = {
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -41,8 +42,27 @@ public class UtilityTester {
                             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
                          };
         
-        int[] top = getTop(field1);
-        state.setField(field1);
+        int[] top = getTop(field);
+        state.setField(field);
+        state.setNextPiece(1);
+        state.setTurnNumber(0);
+        state.setTop(top);
+        state.makeMove(0);
+        return state;
+    }
+    
+    private static int[][] createField(int[] binaryField) {
+        int[][] field = new int[TetrisState.ROWS][TetrisState.COLS];
+        
+        return field;
+    }
+    private static TetrisState getState2() {    
+        TetrisState state = new TetrisState();
+        int[] binaryField = {384,768,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        int[][] field = createField(binaryField);
+        
+        int[] top = getTop(field);
+        state.setField(field);
         state.setNextPiece(6);
         state.setTurnNumber(0);
         state.setTop(top);
