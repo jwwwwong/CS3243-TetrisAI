@@ -19,6 +19,7 @@ public abstract class AiEvaluator {
             int[][] legalMoves = s.legalMoves();
             int move = movePicker.pickMove(s, legalMoves, utilityCalculator);
             s.makeMove(move);
+            System.out.println("rows cleared " + s.getRowsCleared());
         }
         int performance = s.getRowsCleared();
         return performance;

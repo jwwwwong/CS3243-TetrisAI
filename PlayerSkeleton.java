@@ -14,7 +14,7 @@ public class PlayerSkeleton {
     private static void runMovePicker(MovePicker movePicker) {        
         UtilityCalculator utilityCalculator = new UtilityCalculator();
         utilityCalculator.setWeights(_weights);
-        AiEvaluator evaluator = new IncrementalSequenceEvaluator(); 		
+        AiEvaluator evaluator = new RandomSequenceEvaluator(); 		
  		int performance = evaluator.evaluateAveragePerformance(movePicker, utilityCalculator);
         System.out.print(performance);
         System.out.println();
@@ -34,6 +34,14 @@ public class PlayerSkeleton {
         runMovePicker(new MovePicker2Ply());
         System.out.println();        
     }
+    
+    
+    private static void runMovePicker2PlyOptimized() {
+        System.out.print("MovePicker2Ply performance: ");
+        runMovePicker(new MovePicker2PlyOptimized());
+        System.out.println();        
+    }
+    
     
     private static void runOptimizer() {
         UtilityCalculator utilityCalculator = new UtilityCalculator();
@@ -71,10 +79,11 @@ public class PlayerSkeleton {
     }
 	
 	public static void main(String[] args) {
-        runNormalGame();
+        //runNormalGame();
 		//runOptimizer();
         //runMovePicker1Ply();
         //runMovePicker2Ply();
+        runMovePicker2PlyOptimized();
 	}
 	
 }
